@@ -7,7 +7,8 @@ import requests
 
 def find_pairs(nba_players: list, height_in: int):
     """
-    @params: nba_players NBA DATASET
+    @params: nba_players NBA dataset
+    @params: height_in  Height in inches to be adds up
     """
     matches = dict()
 
@@ -33,6 +34,7 @@ def find_pairs(nba_players: list, height_in: int):
     if counter_matching_pairs == 0:
         print("No matches found")
 
+    # included only for testing purpose
     return counter_matching_pairs
 
 
