@@ -1,11 +1,14 @@
+"""
+    Program description...
+"""
+import sys
 import requests
 
 
-def find_pairs(nba_players: list, height_in: int = 0):
+def find_pairs(nba_players: list, height_in: int):
     """
     @params: nba_players NBA DATASET
     """
-
     matches = dict()
 
     counter_matching_pairs: int = 0
@@ -30,11 +33,13 @@ def find_pairs(nba_players: list, height_in: int = 0):
     if counter_matching_pairs == 0:
         print("No matches found")
 
+    return counter_matching_pairs
+
 
 if __name__ == "__main__":
 
     try:
-        HEIGHT = 119
+        HEIGHT = int(sys.argv[1])
         END_POINT_URL = "https://mach-eight.uc.r.appspot.com/"
 
         response = requests.get(END_POINT_URL)
@@ -45,3 +50,5 @@ if __name__ == "__main__":
 
     except requests.exceptions.HTTPError as err:
         raise SystemExit(err)
+    except IndexError:
+        print("You did not specify the height in inches to be adds up")
